@@ -1,0 +1,17 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #757272;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+.error {
+  color: rgb(187, 9, 9);
+}

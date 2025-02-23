@@ -1,0 +1,14 @@
+.contactItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 200px;
+  border: 1px solid #757272;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  gap: 5px;
+  padding-bottom: 5px;
+}
