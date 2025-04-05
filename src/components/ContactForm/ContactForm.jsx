@@ -1,7 +1,10 @@
 import s from "./ContactForm.module.css";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-const ContactForm = ({ handleContactPlus }) => { 
+import { addContact } from "../../redux/contactsSlice";
+import { useDispatch } from "react-redux";
+import { nanoid } from "nanoid";
+const ContactForm = () => { 
     
     const onlyLaters = /^[A-Za-zА-Яа-яЄєІіЇїҐґ-\s]+$/;
 
@@ -19,7 +22,9 @@ const ContactForm = ({ handleContactPlus }) => {
     });
 
     const handleSubmit = (values, actions) => {
-        handleContactPlus(values.name, values.number);
+        useDispatch(
+            addContact({ ...values, id: nanoid() })
+        );
         actions.resetForm();
     };
 
@@ -29,11 +34,11 @@ const ContactForm = ({ handleContactPlus }) => {
             number: '',
         }}
             onSubmit={handleSubmit}
-        validationSchema={validSchema}>
+            validationSchema={validSchema} >
             <Form className={s.form}>
                 <label>
-                    <p>Name</p>
-                    <Field type="text" name="name"  />
+            <p>Name</p>
+                    <Field type="text" name="name" />
                     <ErrorMessage
                         name="name"
                         component="p"
