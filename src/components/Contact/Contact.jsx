@@ -2,9 +2,12 @@ import { deleteContact } from "../../redux/contactsSlice";
 import s from "./Contact.module.css";
 import { useDispatch } from "react-redux";
 
+
 const Contact = ({ contact }) => {
 
-  const handleContactMinus = () => useDispatch(deleteContact(contact.id))
+  const dispatch = useDispatch();
+
+  const handleContactMinus = () => dispatch(deleteContact(contact.id))
 
   return (
       <div className={s.contactItem}>

@@ -5,6 +5,8 @@ import { addContact } from "../../redux/contactsSlice";
 import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
 const ContactForm = () => { 
+
+    const dispatch = useDispatch();
     
     const onlyLaters = /^[A-Za-zА-Яа-яЄєІіЇїҐґ-\s]+$/;
 
@@ -22,9 +24,7 @@ const ContactForm = () => {
     });
 
     const handleSubmit = (values, actions) => {
-        useDispatch(
-            addContact({ ...values, id: nanoid() })
-        );
+        dispatch(addContact({ ...values, id: nanoid() }));
         actions.resetForm();
     };
 

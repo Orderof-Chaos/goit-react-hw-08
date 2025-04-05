@@ -6,8 +6,11 @@ const SearchBox = () => {
   const request = useSelector((state) => state.filters.name)
   
   const handleSearchChange = (e) => {
+
+    const dispatch = useDispatch();
+
     const inputValue = e.target.value
-    useDispatch(changeFilter(inputValue))
+    dispatch(changeFilter(inputValue))
   }
 
   return (

@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid'
 import s from './App.module.css';
 import ContactList from "./components/ContactList/ContactList"
 import SearchBox from "./components/SearchBox/SearchBox"
