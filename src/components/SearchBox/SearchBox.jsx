@@ -3,12 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeFilter } from "../../redux/filtersSlice";
 const SearchBox = () => {
 
+  const dispatch = useDispatch();
+  
   const request = useSelector((state) => state.filters.name)
   
   const handleSearchChange = (e) => {
-
-    const dispatch = useDispatch();
-
     const inputValue = e.target.value
     dispatch(changeFilter(inputValue))
   }
