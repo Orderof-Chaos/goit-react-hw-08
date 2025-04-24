@@ -2,7 +2,7 @@ import s from './App.module.css';
 import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { AppBar } from './components/AppBar/AppBar'
+import Layout from './components/Layout/Layout'
 import { RestrictedRoute } from './components/RestrictedRoute';
 import { PrivateRoute } from './components/PrivateRoute';
 import { selectIsRefreshing } from './redux/auth/selectors';
@@ -25,20 +25,22 @@ function App() {
   return isRefreshing ? (
     <strong>Refreshing user...</strong> ) : (
       <div className={s.mainContainer}>
-        <AppBar />
-        <Suspense fallback = {null}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path='/register'
-              element={<RestrictedRoute
-                redirectTo='/contacts'
-                component={<RegistrationPage />} />} />
-            <Route path='/login'
+        <Layout>
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path='/register'
+                element={<RestrictedRoute
+                  redirectTo='/contacts'
+                  component={<RegistrationPage />} />} />
+              <Route path='/login'
               element={<RestrictedRoute redirectTo='/contacts' component={<LoginPage />} />} />
-            <Route path='/contacts' element={<PrivateRoute redirectTo='/login' component={<ContactsPage/>}/>} />
-          </Routes>
-        </Suspense>
+              <Route path='/contacts' element={<PrivateRoute redirectTo='/login' component={<ContactsPage />} />} />
+            </Routes>
+          </Suspense>
+        </Layout>
       </div>
+      
     )
 };
 export default App;
