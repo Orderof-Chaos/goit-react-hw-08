@@ -49,7 +49,7 @@ export const refreshUser = createAsyncThunk(
         
         try {
             setAuthHeader(persistedToken);
-            const res = await axios.get('/users/me');
+            const res = await axios.get('/users/current');
             return res.data
         } catch (e) {
             return thunkAPI.rejectWithValue(error.message)
