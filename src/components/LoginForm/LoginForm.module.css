@@ -1,0 +1,14 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.label {
+  display: flex;
+  width: 40vw;
+  justify-content: space-between;
+}
+.button {
+  width: 100px;
+  margin: 0 auto;
+}
